@@ -30,12 +30,14 @@ var mongoose_conn = '';
 var env = process.env.NODE_ENV || 'dev';
 if (env == 'dev') {
   var mongoose_conn = 'mongodb://localhost/ColorNinja';
-}  
+}  else {
+  var mongoose_conn = config.database;  
+}
 
 //
 //mongodb://localhost/ColorNinja
 
-mongoose.connect('mongodb://localhost/ColorNinja', { promiseLibrary: require('bluebird') })
+mongoose.connect(mongoose_conn, { promiseLibrary: require('bluebird') })
   .then(() =>  console.log('connection successful'))
   .catch((err) => console.error(err));
 
