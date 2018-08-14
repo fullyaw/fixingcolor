@@ -1,0 +1,10 @@
+{
+    "apps": [{
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+		  "src/favicon.ico",
+		  "src/assets"
+     ]
+    }]
+}
