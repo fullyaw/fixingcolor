@@ -1,5 +1,5 @@
-var user = 'fixingcolor';
-var password = 'test';
+var user = 'test';
+var password = 'testing123';
 
 module.exports = {
   'secret':'0199089ColorNinja',
