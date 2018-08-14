@@ -1,4 +1,4 @@
-var user = 'test';
+var user = 'www';
 var password = 'testing123';
 
 module.exports = {
