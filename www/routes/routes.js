@@ -590,15 +590,15 @@ router.post('/sendEmail', function(req, res, next) {
   var transporter = nodemailer.createTransport({
    service: 'gmail',
    auth: {
-          user: 'fullyaw.info@gmail.com',
-          pass: 'test'
+          user: config.email_to,
+          pass: config.email_pwd
       }
   });
 
   const mailOptions = {
     from: req.body.email, // sender address
-    to: 'fullyaw.info@gmail.com',
-    subject: 'Color Ninja Web Contact',
+    to: config.email_to,
+    subject: config.email_subject,
     html: req.body.message,
   };  
 
