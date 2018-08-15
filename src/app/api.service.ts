@@ -73,14 +73,14 @@ export class ApiService {
 
   getGalleryItemsForHero(): Observable<any> {
     const url = `${apiUrl}/home/hero/`;
-    return this.http.get(url, this.getHttpOptions()).pipe(
+    return this.http.get(url, this.httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
   }
 
   getGalleryItemsForHome(): Observable<any> {
     const url = `${apiUrl}/home/`;
-    return this.http.get(url, this.getHttpOptions()).pipe(
+    return this.http.get(url, this.httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
   }
