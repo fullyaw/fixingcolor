@@ -96,14 +96,19 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
   }
 
   getSlideShowItems() {
+    console.log('getSlideShowItems start');
     this.api.getGalleryItemsForHero().subscribe(data => {
+      console.log('getSlideShowItems api returned');
       for (let item of data) {
+        console.log('getSlideShowItems looping');
         if (item._id) {
           this.galleryItems.push(item);          
         }
       }  
       this.sizeLayout();   
+      console.log('getSlideShowItems sizeLayout');
       this.hidePreloader();
+      console.log('getSlideShowItems hide preloader');
     });  
   }
 }
