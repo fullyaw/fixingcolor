@@ -10,6 +10,8 @@ const httpOptions = {
 
 const apiUrl = environment.apiUrl;
 
+console.log('Useing Service Url:' + apiUrl);
+
 @Injectable({
   providedIn: 'root'
 })
