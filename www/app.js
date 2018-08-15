@@ -43,7 +43,7 @@ mongoose.connect(mongoose_conn, { promiseLibrary: require('bluebird') })
   .catch((err) => console.error(err));
 
 console.log('running in:' + __dirname);
-
+console.log('process.env.mail_pwd:' + process.env.mail_pwd);
 app.use(passport.initialize());  
 //app.use(cors(corsOptions));    
 app.use(cors());    
