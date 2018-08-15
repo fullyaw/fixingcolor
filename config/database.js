@@ -1,5 +1,5 @@
 var user = 'www';
-var password = 'testingg123';
+var password = 'testing123';
 
 module.exports = {
   'secret':'0199089ColorNinja',
