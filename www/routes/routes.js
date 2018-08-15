@@ -20,7 +20,7 @@ require('../../config/passport')(passport);
 var jwt = require('jsonwebtoken');
 
 const PATH = '../../uploads/';
-const productionPath = PATH;
+const productionPath = path.resolve(__dirname, PATH);
 const developmentPath = 'c:\\Users\\sn3ll\\Desktop\\ColorNinja\\uploads\\';
 
 const storage = multer.diskStorage({
