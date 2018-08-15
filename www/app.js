@@ -36,24 +36,11 @@ if (env == 'dev') {
   var mongoose_conn = config.database;  
 }
 
-//
-//mongodb://localhost/ColorNinja
-
 mongoose.connect(mongoose_conn, { promiseLibrary: require('bluebird') })
   .then(() =>  console.log('Mongo Connection Successful'))
   .catch((err) => console.error(err));
 
 console.log('running in:' + __dirname);
-console.log('dist folder:' + path.join(__dirname, ROOT_DIST_PATH));
-
-const fs = require('fs');
-
-fs.readdir(__dirname, (err, files) => {
-  files.forEach(file => {
-    console.log(file);
-  });
-})
-
 
 app.use(passport.initialize());  
 app.use(cors(corsOptions));    
@@ -86,6 +73,10 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.send(err.status);
+});
+
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname + ROOT_DIST_PATH + '/index.html'));
 });
 
 module.exports = app;
