@@ -1,7 +1,5 @@
-var user = process.env.mongoose_user;
-var password = process.env.mongoose_pwd;
-
-console.log('Found Mongoose:' + user + ' ' + password);
+var user = 'www';
+var password = 'testingg123';
 
 module.exports = {
   'secret':'0199089ColorNinja',
