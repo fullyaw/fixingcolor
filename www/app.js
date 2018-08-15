@@ -38,10 +38,20 @@ if (env == 'dev') {
 //mongodb://localhost/ColorNinja
 
 mongoose.connect(mongoose_conn, { promiseLibrary: require('bluebird') })
-  .then(() =>  console.log('connection successful'))
+  .then(() =>  console.log('Mongo Connection Successful'))
   .catch((err) => console.error(err));
 
 console.log('running in:' + __dirname);
+console.log('dist folder:' + path.join(__dirname, 'dist/ColorNinja'));
+
+const fs = require('fs');
+
+fs.readdir(__dirname, (err, files) => {
+  files.forEach(file => {
+    console.log(file);
+  });
+})
+
 
 app.use(passport.initialize());  
 app.use(cors(corsOptions));    
