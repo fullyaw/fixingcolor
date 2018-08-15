@@ -21,7 +21,9 @@ var jwt = require('jsonwebtoken');
 
 const PATH = '../../uploads/';
 const productionPath = path.resolve(__dirname, PATH);
-const developmentPath = 'c:\\Users\\sn3ll\\Desktop\\ColorNinja\\uploads\\';
+const developmentPath = 'c:\\Users\\sn3ll\\Desktop\\ColorNinja\\uploads';
+
+console.log('Using Production Path:' + productionPath);
 
 const storage = multer.diskStorage({
   destination: async function(req, file, cb) {
