@@ -1,0 +1,27 @@
+              <!-- Contact Form -->
+              <div class="row" id="contact">
+                <div class="col col-12">
+                  <div class="aurel-widget-heading aurel_mb_35 aurel_mt_50">
+                    <div class="aurel_widget_container aurel_text_align_center">
+                      <h2 class="aurel-heading-title">Book <span class="aurel_color">Now</span></h2>
+                    </div>
+                  </div>
+
+                  <form [formGroup]="contactForm">
+                    <div class="aurel_contact_form">                      
+                      <textarea formControlName="message" name="message" form="contactForm" placeholder="Message" rows="10" cols="40" required></textarea>
+                      <span *ngIf="!contactForm.get('message').valid && contactForm.get('message').touched">Please enter an Email</span>
+
+                      <input formControlName="name" type="text" name="name" form="contactForm" placeholder="Name" size="40" required>
+                      <span *ngIf="!contactForm.get('name').valid && contactForm.get('name').touched">Please enter your Name</span>
+
+                      <input formControlName="email" type="email" name="email" form="contactForm" placeholder="Email" size="40" required>
+                      <span *ngIf="!contactForm.get('email').valid && contactForm.get('email').touched">Please enter an Email</span>
+                                            
+                      <button class="aurel_button" value="Send Message" (click)="sendMail(contactForm.value)" [disabled]="!contactForm.valid">Send Message<i class="fa fa-refresh fa-spin btn-icon" [class.btn-icon-hide]="!isLoading"></i>
+                      </button>
+                      <span class="response-msg" *ngIf="responseMessage">{{responseMessage}}</span>
+                    </div>
+                  </form>
+                </div>
+              </div>

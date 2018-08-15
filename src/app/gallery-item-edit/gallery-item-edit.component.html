@@ -1,0 +1,37 @@
+<div class="button-row">
+  <a mat-raised-button color="primary" (click)="galleryItemDetails()"><mat-icon>list</mat-icon></a>
+</div>
+<form [formGroup]="galleryItemForm" (ngSubmit)="onFormSubmit(galleryItemForm.value)">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Title" formControlName="title"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!galleryItemForm.get('title').valid && galleryItemForm.get('title').touched">Please enter Gallery Title</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Description" formControlName="description"
+           [errorStateMatcher]="matcher"></textarea>
+    <mat-error>
+      <span *ngIf="!galleryItemForm.get('description').valid && galleryItemForm.get('description').touched">Please enter Gallery Description</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Filters" formControlName="filters">
+    <mat-error>
+      <span *ngIf="!galleryItemForm.get('filters').valid && galleryItemForm.get('filters').touched">Please enter Filters (comma sperated)</span>
+    </mat-error>
+  </mat-form-field>  
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Sort Order" formControlName="sort_order"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!galleryItemForm.get('sort_order').valid && galleryItemForm.get('sort_order').touched">Please enter Sort Order</span>
+    </mat-error>
+  </mat-form-field>    
+    <mat-checkbox formControlName="on_homepage" labelPosition="before">On Homepage</mat-checkbox>
+    <mat-checkbox formControlName="on_slider" labelPosition="before">On Homepage Slider</mat-checkbox>
+  <div class="button-row">
+    <button type="submit" [disabled]="!galleryItemForm.valid" mat-raised-button color="primary"><mat-icon>save</mat-icon></button>
+  </div>
+</form>

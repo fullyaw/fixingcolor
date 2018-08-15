@@ -1,0 +1,52 @@
+
+<!-- Row -->
+<div class="row" id="portfolio">
+	<div class="col col-12">
+		<div class="aurel-widget-heading aurel_mb_35 aurel_mt_50">
+			<div class="aurel_widget_container aurel_text_align_center">
+				<h2 class="aurel-heading-title">View our <span class="aurel_color">Work</span></h2>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row aurel_pf_fullwidth">
+	<div class="col col-12 aurel_pl_30 aurel_pr_30">
+		<div class="aurel_widget_pm_grid_gallery">
+			<div class="aurel_widget_container">
+				<div class="aurel_front_end_display">
+					<div class="aurel_grid_wrapper aurel_photoswipe_wrapper aurel_grid_007" data-uniqid="007" data-perload="4" [style.height.px]="height" (window:resize)="onResize($event)" #photoSwipeWrapper>
+						<div class="aurel_grid_inner aurel_isotope_trigger is_masonry grid_columns4 hover_type_solid_plus side_paddings_off" data-perload="4" data-pad="30" #isotopeTrigger>
+
+							<!-- Item 1 -->
+							<div *ngFor="let galleryItem of galleryItems; let i = index" class="grid-item element grid_b2p" #beforeAfter (window:resize)="onResize($event)" >
+								<div class="grid-item-inner">
+
+
+									<div class="aurel_before_after_wrapper aurel_no_select">
+										<div class="aurel_before_after" (mouseenter) ="mouseEnter($event)" (mouseleave) ="mouseLeave($event)" (click)="itemClick(i)">
+											
+											<img src="{{apiUrl}}/gallery-item/{{galleryItem._id}}/corrected" alt="{{galleryItem.title}}" (load)="onImageLoaded($event)" class="grid_thmb aurel_before_image"/>
+
+											<div class="aurel_after_image aurel_js_bg_image" [attr.data-src]="apiUrl + '/gallery-item/' + galleryItem._id + '/original'" [style.background-image]="galleryItem._id | safeHtmlOrg"></div>
+
+											<div class="aurel_before_after_divider">
+												<span class="aurel_before_after_left"></span>
+												<span class="aurel_before_after_right"></span>
+											</div>
+										</div>
+									</div>
+
+									<div class="aurel-img-preloader"></div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<app-photo-swipe #photoSwipe></app-photo-swipe>

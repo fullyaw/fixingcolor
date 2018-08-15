@@ -1,0 +1,22 @@
+<div class="button-row">
+  <a mat-raised-button color="primary" (click)="galleryDetails()"><mat-icon>list</mat-icon></a>
+</div>
+<form [formGroup]="galleryForm" (ngSubmit)="onFormSubmit(galleryForm.value)">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Title" formControlName="title"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!galleryForm.get('title').valid && galleryForm.get('title').touched">Please enter Gallery Title</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Description" formControlName="description"
+           [errorStateMatcher]="matcher"></textarea>
+    <mat-error>
+      <span *ngIf="!galleryForm.get('description').valid && galleryForm.get('description').touched">Please enter Gallery Description</span>
+    </mat-error>
+  </mat-form-field>
+  <div class="button-row">
+    <button type="submit" [disabled]="!galleryForm.valid" mat-raised-button color="primary"><mat-icon>save</mat-icon></button>
+  </div>
+</form>

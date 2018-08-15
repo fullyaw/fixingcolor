@@ -1,0 +1,25 @@
+  <div class="button-row">
+    <a mat-raised-button color="primary" (click)="galleryItemDetails()"><mat-icon>list</mat-icon></a>
+  </div>
+
+  <div class="row">
+    <span>Title:</span>&nbsp;<span>{{galleryItem.title}}</span>
+  </div>
+
+  <div class="row">
+    <span>Description:</span>&nbsp;<span>{{galleryItem.description}}</span>
+  </div>
+
+  <div class="row" *ngIf="galleryItem.medium_src_original">
+    <h2>Original Image:</h2>
+    <img src="{{environment.apiUrl}}/gallery-item/{{galleryItem._id}}/original/m" />
+  </div>
+
+  <div class="row" *ngIf="galleryItem.medium_src_corrected">
+    <h2>Corrected Image:</h2>
+    <img src="{{environment.apiUrl}}/gallery-item/{{galleryItem._id}}/corrected/m" />    
+  </div>
+
+  <div class="button-row">
+    <a mat-raised-button color="primary" [routerLink]="['/gallery-item-edit', galleryId, id]"><mat-icon>edit</mat-icon></a>
+  </div>

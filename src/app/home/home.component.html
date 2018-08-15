@@ -1,0 +1,66 @@
+	<div class="aurel_site_wrapper static_header_footer fadeOnLoad">		
+
+		<app-header></app-header>
+
+		<div class="aurel_main_wrapper aurel_top_padding_no aurel_bottom_padding_yes" style="min-height:123px;" #mainWrapper>
+			<div class="aurel_container aurel_js_bg_color" data-bgcolor="" #mainContainer>
+				<div class="aurel_content_wrapper row aurel_no_sidebar">
+					<div class="aurel_content col col-12">
+						<div class="aurel_tiny">
+
+							<div class="aurel_pf_fullwidth aurel_mb_95" [style.widthLeft.px]="marginLeft" [style.width.px]="width" (window:resize)="onResize($event)">
+								<div class="aurel_widget_pm_slider_gallery">
+									<div class="aurel_widget_container">
+										<div class="aurel_front_end_display">
+											<div class="aurel_slider_wrapper aurel_no_select screen_height aurel_slider_title_align_center" data-autoplay="on" data-interval="5000" [style.height.px]="height" (window:resize)="onResize($event)" #slideWrapper>
+
+												<div class="aurel_slider cover">
+
+	<div *ngFor="let galleryItem of galleryItems; let i = index" [ngClass]="{'active': (i==0)}" class="aurel_slider_slide aurel_slide2preload aurel_slider_slide1 aurel_js_bg_image" [attr.data-count]="i+1" #sliderImage
+	[style.background-image]="galleryItem._id | safeHtml">
+		<h2 class="aurel_slide_title">{{galleryItem.title}}</h2>
+		<span class="aurel_slider_overlay_gradient"></span>
+	</div>
+
+												</div>
+
+												<a class="aurel_slider_btn_prev controls_style_light" href="javascript:void(0)" (click)="onPrev()"></a>
+												<a class="aurel_slider_btn_next controls_style_light" href="javascript:void(0)" (click)="onNext()"></a>
+
+
+												<div class="aurel_gallery_preloader"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+							<app-slideshow></app-slideshow>
+
+							<app-services></app-services>
+
+							<app-contact></app-contact>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<app-footer></app-footer>
+
+		<!-- Back Button -->
+		<div class="aurel_back_to_top"></div>
+	</div>
+
+
+	<!-- Preloader -->
+	<div class="aurel_preloader_wrapper" #preloader *ngIf="isLoading">
+		<div class="aurel_preloader_content">
+			<div class="aurel_preloader_bar"></div>
+			<h6 class="aurel_preloader_text">LOADING</h6>
+		</div>
+	</div>
+

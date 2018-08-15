@@ -1,0 +1,63 @@
+<div class="row" *ngIf="isLoading" >
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+
+<div class="button-row">
+  <a mat-raised-button color="primary" [routerLink]="['/gallery']"><mat-icon>list</mat-icon></a>
+</div>
+<form [formGroup]="galleryItemForm" enctype="multipart/form-data" (ngSubmit)="onFormSubmit(galleryItemForm.value)">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Title" formControlName="title"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!galleryItemForm.get('title').valid && galleryItemForm.get('title').touched">Please enter Gallery Item Title</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Description" formControlName="description"
+           [errorStateMatcher]="matcher"></textarea>
+    <mat-error>
+      <span *ngIf="!galleryItemForm.get('description').valid && galleryItemForm.get('description').touched">Please enter Gallery Item Description</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Filters" formControlName="filters">
+    <mat-error>
+      <span *ngIf="!galleryItemForm.get('filters').valid && galleryItemForm.get('filters').touched">Please enter Filters (comma sperated)</span>
+    </mat-error>
+  </mat-form-field>  
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Sort Order" formControlName="sort_order"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!galleryItemForm.get('sort_order').valid && galleryItemForm.get('sort_order').touched">Please enter Sort Order</span>
+    </mat-error>
+  </mat-form-field>
+  <div class="row">
+    <mat-checkbox formControlName="on_homepage" labelPosition="before">On Homepage</mat-checkbox>
+    <mat-checkbox formControlName="on_slider" labelPosition="before">On Homepage Slider</mat-checkbox>  
+  </div>   
+  <div class="button-row">
+    <button mat-button color="warn" (click)="onOriginalFileClick()" type="button">
+      <mat-icon>file_upload</mat-icon>{{text}} Original
+    </button>
+    <button mat-button color="warn" (click)="onCorrectedFileClick()" type="button">
+      <mat-icon>file_upload</mat-icon>{{text}} Corrected
+    </button>
+
+    <button type="submit" [disabled]="!galleryItemForm.valid" mat-raised-button color="primary"><mat-icon>save</mat-icon></button>
+  </div>
+  <br/>
+  <ul>
+    <li *ngFor="let file of files" [@fadeInOut]="file.state">
+      <mat-progress-bar [value]="file.progress"></mat-progress-bar>
+      <span id="file-label">{{file.data.name}} 
+      <a title="Retry" (click)="retryFile(file)" *ngIf="file.canRetry">
+        <mat-icon>refresh</mat-icon></a>
+      <a title="Cancel" (click)="cancelFile(file)" *ngIf="file.canCancel">
+        <mat-icon>cancel</mat-icon></a></span>
+    </li>
+  </ul>
+  <input type="file" id="originalFile" name="originalFile" accept="{{accept}}" style="display:none;"/><input type="file" id="correctedFile" name="correctedFile" accept="{{accept}}" style="display:none;"/>
+
+</form>

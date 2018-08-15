@@ -1,0 +1,84 @@
+		<!-- Header -->
+		<header class="aurel_main_header aurel_logo_left aurel_border_off aurel_header_gradient_style aurel_sticky_menu_on" #mainHeader (scroll)="scrollHandler($event)">
+			<div class="aurel_main_header_wrapper">
+				<div class="aurel_header_left_part aurel_header_logo_part" #logoHeader (window:resize)="onResize($event)" [style.width.px]="logoWidth" >
+					<div class="aurel_logo_cont">
+						<a class="aurel_image_logo aurel_dp aurel_no_select aurel_retina" href="/"></a>
+					</div>
+				</div>
+
+				<div class="aurel_header_middle_part aurel_header_menu_part" #menuHeader [style.width.px]="menuWidth" (window:resize)="onResize($event)">
+					<nav class="aurel_nav">
+						<ul class="aurel_menu">
+							<li class="menu-item-has-children">
+								<a [routerLink]="['/home']" fragment="portfolio">Portfolio</a>
+							</li>
+
+							<li class="menu-item-has-children">
+								<a [routerLink]="['/home']" fragment="services">Services</a>
+							</li>
+
+							<li class="menu-item-has-children">
+								<a [routerLink]="['/home']" fragment="contact">Book Now!</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+
+				<div class="aurel_header_right_part aurel_header_socials_part" #socialHeader [style.width.px]="socialWidth" (window:resize)="onResize($event)">
+					<div class="aurel_header_socials">
+						<a class="aurel_footer_social_button aurel_twitter" href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+						<a class="aurel_footer_social_button aurel_instagram" href="https://www.instagram.com/?hl=ru"><i class="fa fa-instagram"></i></a>
+						<a class="aurel_toogle_fullview" href="javascript:void(0)">
+							<span class="aurel_fullview_block01"></span>
+							<span class="aurel_fullview_block02"></span>
+							<span class="aurel_fullview_block03"></span>
+							<span class="aurel_fullview_block04"></span>
+						</a>
+					</div>
+				</div>
+
+				<!-- Logo Mobile -->
+				<div class="aurel_header_mobile_logo">
+					<div class="aurel_logo_cont">
+						<a href="index.html" class="aurel_image_logo aurel_dp aurel_no_select aurel_retina"></a>
+					</div>
+				</div>
+
+				<a class="aurel_header_mobile_menu_toggler" href="javascript:void(0)">
+					<span class="aurel_mmt_icon">
+						<span class="aurel_mmt_line01"></span>
+						<span class="aurel_mmt_line02"></span>
+						<span class="aurel_mmt_line03"></span>
+					</span>
+				</a>
+			</div>
+
+			<!-- Mobile Menu -->
+			<div class="aurel_mobile_menu_wrapper">
+				<div class="aurel_header_socials">
+					<a class="aurel_footer_social_button aurel_twitter" href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+					<a class="aurel_footer_social_button aurel_instagram" href="https://www.instagram.com/?hl=ru"><i class="fa fa-instagram"></i></a>
+					<a class="aurel_toogle_fullview" href="javascript:void(0)">
+						<span class="aurel_fullview_block01"></span>
+						<span class="aurel_fullview_block02"></span>
+						<span class="aurel_fullview_block03"></span>
+						<span class="aurel_fullview_block04"></span>
+					</a>
+				</div>
+
+				<nav class="aurel_mobile_nav">
+					<ul class="aurel_menu">
+						<li class="menu-item-has-children">
+							<a href="javascript:void(0)">Portfolio</a>
+						</li>
+						<li class="menu-item-has-children current-menu-ancestor">
+							<a href="javascript:void(0)">Services</a>
+						</li>
+						<li class="menu-item-has-children">
+							<a href="javascript:void(0)">Book Now</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
