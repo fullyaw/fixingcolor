@@ -13,6 +13,8 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var config = require('../config/database');
 
+const ROOT_DIST_PATH = '../dist/fixingcolor';
+
 var whitelist = [
     'http://localhost:3000',
     'http://localhost:4200',  
@@ -42,7 +44,7 @@ mongoose.connect(mongoose_conn, { promiseLibrary: require('bluebird') })
   .catch((err) => console.error(err));
 
 console.log('running in:' + __dirname);
-console.log('dist folder:' + path.join(__dirname, 'dist/ColorNinja'));
+console.log('dist folder:' + path.join(__dirname, ROOT_DIST_PATH));
 
 const fs = require('fs');
 
@@ -59,9 +61,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: false }));
 //app.use(express.static(path.join(__dirname, 'dist/ColorNinja')));
-app.use('/', express.static(path.join(__dirname, 'dist/ColorNinja')));
-app.use('/css', express.static(path.join(__dirname, 'dist/ColorNinja/assets/css')));
-app.use('/img', express.static(path.join(__dirname, 'dist/ColorNinja/assets/img')));
+app.use('/', express.static(path.join(__dirname, ROOT_DIST_PATH)));
+app.use('/css', express.static(path.join(__dirname, ROOT_DIST_PATH + '/assets/css')));
+app.use('/img', express.static(path.join(__dirname, ROOT_DIST_PATH + '/assets/img')));
 app.use('/api', apiRouter);
 
 app.use(function (req, res, next) {
