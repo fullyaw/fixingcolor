@@ -41,7 +41,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, AfterViewChecked 
     });
   }
 
-  onResize() {
+  onResize($event) {
     this.sizeLayout();  
   }
 

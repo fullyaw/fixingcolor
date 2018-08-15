@@ -56,7 +56,7 @@ export class SlideshowComponent implements OnInit, AfterViewInit {
     this.sizeLayout();    
   }
 
-  onResize() {
+  onResize($event) {
     this.sizeLayout();    
   }
 

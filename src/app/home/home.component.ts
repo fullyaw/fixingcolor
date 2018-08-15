@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
     this.sizeLayout();  
   }
 
-  onResize() {
+  onResize($event) {
     aurel_slider_object.setup.call(aurel_slider_object,'');
     this.sizeLayout(); 
   }

@@ -24,7 +24,9 @@ export class GalleryItemCreateComponent implements OnInit {
   galleryId:string;  
   title:string='';
   description:string='';
-  
+  matcher: any;
+  files = [];
+    
   text = 'Upload';
   param = 'file';
   accept = 'image/*';

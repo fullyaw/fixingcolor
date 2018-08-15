@@ -13,7 +13,8 @@ export class GalleryCreateComponent implements OnInit {
   galleryForm: FormGroup;
   title:string='';
   description:string='';
-
+  matcher: any;
+  
   constructor(private router: Router, private api: ApiService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {

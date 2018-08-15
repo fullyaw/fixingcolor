@@ -15,6 +15,7 @@ export class GalleryEditComponent implements OnInit {
   id:string = '';
   title:string = '';
   description:string = '';
+  matcher:any;
 
   constructor(private router: Router, private route: ActivatedRoute, private api: ApiService, private formBuilder: FormBuilder) { }
 
