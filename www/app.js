@@ -45,7 +45,7 @@ mongoose.connect(mongoose_conn, { promiseLibrary: require('bluebird') })
 console.log('running in:' + __dirname);
 
 app.use(passport.initialize());  
-//app.use(cors(corsOptions));    
+app.use(cors(corsOptions));    
 app.use(logger('dev'));
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: false }));
@@ -56,8 +56,9 @@ app.use('/img', express.static(path.join(__dirname, ROOT_DIST_PATH + '/assets/im
 app.use('/api', apiRouter);
 
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, OPTIONS, DETELE');
+  res.setHeader('Access-Control-Allow-Headers', '*');
   next();
 });
 
