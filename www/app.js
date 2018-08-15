@@ -45,7 +45,7 @@ mongoose.connect(mongoose_conn, { promiseLibrary: require('bluebird') })
 console.log('running in:' + __dirname);
 
 app.use(passport.initialize());  
-app.use(cors(corsOptions));    
+//app.use(cors(corsOptions));    
 app.use(logger('dev'));
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: false }));
