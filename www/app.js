@@ -75,8 +75,8 @@ app.use(function(err, req, res, next) {
   res.send(err.status);
 });
 
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + ROOT_DIST_PATH + '/index.html'));
+app.get('*', function (req, res) {
+  res.sendfile('./dist/index.html'); // load our index.html file
 });
 
 module.exports = app;
