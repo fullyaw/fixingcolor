@@ -18,8 +18,8 @@ const ROOT_DIST_PATH = '../dist/fixingcolor';
 var whitelist = [
     'http://localhost:3000',
     'http://localhost:4200', 
-    'https://fixingcolor.herokuapp.com',      
-    'http://fixingcolor.herokuapp.com'
+    'https://*.herokuapp.com',      
+    'http://*.herokuapp.com',    
 ];
 
 var corsOptions = {
