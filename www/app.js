@@ -57,10 +57,10 @@ app.use('/img', express.static(path.join(__dirname, ROOT_DIST_PATH + '/assets/im
 app.use('/api', apiRouter);
 
 app.use(function (req, res, next) {
-  //res.setHeader('Access-Control-Allow-Origin', '*');
-  //res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, OPTIONS, DETELE');
-  //res.setHeader('Access-Control-Allow-Headers', '*');
-  //next();
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, OPTIONS, DETELE');
+  res.setHeader('Access-Control-Allow-Headers', '*');
+  next();
 });
 
 app.get('*', function (req, res) {
