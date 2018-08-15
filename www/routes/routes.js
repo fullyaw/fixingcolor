@@ -593,7 +593,7 @@ router.post('/sendEmail', function(req, res, next) {
    service: 'gmail',
    auth: {
           user: config.email_to,
-          pass: config.email_pwd
+          pass: process.env.mail_pwd
       }
   });
 
