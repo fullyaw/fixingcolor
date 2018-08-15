@@ -633,7 +633,9 @@ sendFile = function(res, filepath) {
   if (env == 'dev') {
     res.sendFile(filepath);
   } else {
-    res.sendFile(filepath.replace(developmentPath, productionPath));
+    var prod_filepath = filepath.replace(developmentPath, productionPath);
+    prod_filepath = prod_filepath.replace(/\\/g, '/');
+    res.sendFile(prod_filepath);
   }  
 }
 
