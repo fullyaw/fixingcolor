@@ -59,6 +59,11 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.get('*', function (req, res) {
+  console.log('Found a * Get');
+  res.sendfile(path.join(__dirname, ROOT_DIST_PATH) + '/index.html'); // load our index.html file
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -73,10 +78,6 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.send(err.status);
-});
-
-app.get('*', function (req, res) {
-  res.sendfile('./dist/index.html'); // load our index.html file
 });
 
 module.exports = app;
