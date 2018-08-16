@@ -127,7 +127,7 @@ export class ApiService {
 
   sendEmail(data): Observable<{}> {
     const url = `${apiUrl}/sendEmail`;
-    return this.http.post(url, data, this.getHttpOptions())
+    return this.http.post(url, data, httpOptions)
       .pipe(catchError(this.handleError));
   }
 
