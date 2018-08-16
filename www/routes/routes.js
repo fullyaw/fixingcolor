@@ -603,7 +603,10 @@ router.post('/sendEmail', function(req, res, next) {
    auth: {
           user: user,
           pass: pwd
-      }
+      },
+    tls: {
+        rejectUnauthorized: false
+    },      
   });
 
   const mailOptions = {
