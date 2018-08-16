@@ -590,23 +590,16 @@ router.delete('/gallery/:galleryId/gallery-item/:id', passport.authenticate('jwt
 router.post('/sendEmail', function(req, res, next) {
   var user = process.env.mail_user;
   var pwd = process.env.mail_pwd;
-  var server = process.env.mail_server;
-  var port = process.env.mail_port;
 
   console.log('Got Mail Server Info:' + user + ' ' + pwd);
 
   var nodemailer = require('nodemailer');
   var transporter = nodemailer.createTransport({
-   host: server,
-   port: port,
-   secure: false,
+   service: 'gmail',
    auth: {
           user: user,
           pass: pwd
-      },
-    tls: {
-        rejectUnauthorized: false
-    },      
+      }     
   });
 
   const mailOptions = {
