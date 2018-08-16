@@ -599,7 +599,7 @@ router.post('/sendEmail', function(req, res, next) {
   var transporter = nodemailer.createTransport({
    host: server,
    port: port,
-   secure: true,
+   secure: false,
    auth: {
           user: user,
           pass: pwd
