@@ -107,12 +107,17 @@ export class SlideshowComponent implements OnInit, AfterViewInit {
           jQuery(item).find('.aurel_before_after_divider').css('left', '50%');
         }
       });
+
+      var divisor = (window.innerWidth <= 760) 1 : 4;
+      this.height = this.imageHeight * (Math.ceil(this.galleryItems.length/divisor));      
+
     }
   }  
 
   onImageLoaded(e) {
-    this.imageHeight = e.target.height+65;  
-    this.height = this.imageHeight * (Math.ceil(this.galleryItems.length/4));    
+    var divisor = (window.innerWidth <= 760) 1 : 4;
+    this.imageHeight = e.target.height+65;      
+    this.height = this.imageHeight * (Math.ceil(this.galleryItems.length/divisor));    
   }
 
   getGalleryItemsForHome(id) {
