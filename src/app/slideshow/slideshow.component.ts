@@ -108,14 +108,13 @@ export class SlideshowComponent implements OnInit, AfterViewInit {
         }
       });
 
-      var divisor = (window.innerWidth <= 760) 1 : 4;
+      var divisor = (window.innerWidth <= 760) ? 1 : 4;
       this.height = this.imageHeight * (Math.ceil(this.galleryItems.length/divisor));      
-
     }
   }  
 
   onImageLoaded(e) {
-    var divisor = (window.innerWidth <= 760) 1 : 4;
+    var divisor = (window.innerWidth <= 760) ? 1 : 4;
     this.imageHeight = e.target.height+65;      
     this.height = this.imageHeight * (Math.ceil(this.galleryItems.length/divisor));    
   }
