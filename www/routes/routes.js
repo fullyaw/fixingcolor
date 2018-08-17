@@ -606,7 +606,7 @@ router.post('/sendEmail', function(req, res, next) {
     from: req.body.email, // sender address
     to: config.email_to,
     subject: config.email_subject,
-    html: req.body.message,
+    html: req.body.email +'<br/>'+ req.body.message,
   };  
 
   transporter.sendMail(mailOptions, function (err, info) {
