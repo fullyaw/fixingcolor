@@ -29,7 +29,8 @@ export class PhotoSwipeComponent
         images = images || this.images;
 
         const options = {
-            index: idx
+            index: idx,
+            allowUserZoom: false
         };
 
         this.gallery = new PhotoSwipe(this.photoSwipe.nativeElement, PhotoSwipeUI_Default, images, options);
@@ -44,14 +45,6 @@ export class PhotoSwipeComponent
 
         this.gallery.listen('imageLoadComplete', function(index, item) { 
             console.log('imageLoadComplete');
-
-            var height = item.container.firstChild.offsetHeight;
-
-            jQuery(item.container).find('.aurel_after_image').css('width', '50%');
-            jQuery(item.container).find('.aurel_after_image').css('height', height + 'px');
-
-            jQuery(item.container).find('.aurel_before_after_divider').css('left', '50%');
-            jQuery(item.container).find('.aurel_before_after_divider').css('height', height + 'px');                      
         });
 
         this.gallery.init();
