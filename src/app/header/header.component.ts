@@ -48,6 +48,9 @@ export class HeaderComponent implements OnInit, AfterViewInit, AfterViewChecked 
   ngAfterViewChecked() {
     this._changeDetectorRef.detectChanges();	
     if(this.fragment) {
+        if (this.fragment.includes('&')) {
+          this.fragment = this.fragment.split('&')[0];
+        }
         document.querySelector('#' + this.fragment).scrollIntoView();
         this.fragment = null;
     }    

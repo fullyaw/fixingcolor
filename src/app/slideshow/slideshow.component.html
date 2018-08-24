@@ -24,7 +24,7 @@
 
 
 									<div class="aurel_before_after_wrapper aurel_no_select">
-										<div class="aurel_before_after" (mouseenter) ="mouseEnter($event)" (mouseleave) ="mouseLeave($event)" (click)="itemClick(i)">
+										<div class="aurel_before_after" (mouseenter)="mouseEnter($event)" (mouseleave)="mouseLeave($event)" (click)="itemClick(i)">
 											
 											<img src="{{apiUrl}}/gallery-item/{{galleryItem._id}}/corrected" alt="{{galleryItem.title}}" (load)="onImageLoaded($event)" class="grid_thmb aurel_before_image"/>
 

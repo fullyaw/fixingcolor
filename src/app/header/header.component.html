@@ -1,9 +1,9 @@
 		<!-- Header -->
-		<header class="aurel_main_header aurel_logo_left aurel_border_off aurel_header_gradient_style aurel_sticky_menu_on" #mainHeader (scroll)="scrollHandler($event)">
+		<header id="home" class="aurel_main_header aurel_logo_left aurel_border_off aurel_header_gradient_style aurel_sticky_menu_on" #mainHeader (scroll)="scrollHandler($event)">
 			<div class="aurel_main_header_wrapper">
 				<div class="aurel_header_left_part aurel_header_logo_part" #logoHeader (window:resize)="onResize($event)" [style.width.px]="logoWidth" >
 					<div class="aurel_logo_cont">
-						<a class="aurel_image_logo aurel_dp aurel_no_select aurel_retina" href="/"></a>
+						<a class="aurel_image_logo aurel_dp aurel_no_select aurel_retina" [routerLink]="['/home']" fragment="home"></a>
 					</div>
 				</div>
 

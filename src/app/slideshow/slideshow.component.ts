@@ -139,8 +139,8 @@ export class SlideshowComponent implements OnInit, AfterViewInit {
           src: environment.apiUrl + '/gallery-item/' + item._id + '/corrected',
           src_original: environment.apiUrl + '/gallery-item/' + item._id + '/original', 
           //thumb: environment.apiUrl + '/gallery-item/' + item._id + '/corrected/m',
-          w: 1920,
-          h: 1080,
+          w: item.width,
+          h: item.height,
           description: item.description,
           title: item.title,
         })      
@@ -148,6 +148,29 @@ export class SlideshowComponent implements OnInit, AfterViewInit {
     }
 
     this.photoSwipe.openGallery(images, idx);
+    jQuery(this.photoSwipe.photoSwipe.nativeElement).on('mousemove', function(event) {
+      this.beforeAfter = (<HTMLImageElement>event.target);
+
+      if (this.beforeAfter !== null && 
+         (this.beforeAfter.className == "pswp__img aurel_before_image" || 
+          this.beforeAfter.className == "aurel_after_image aurel_js_bg_image")) {
+          var height = this.beforeAfter.clientHeight;
+          var this_offset = jQuery(this.beforeAfter).offset().left,
+          mouse_pos = event.pageX - this_offset,
+          current_pos = jQuery(this.beforeAfter).width();
+          if (mouse_pos > 0) {
+            var jps = jQuery(this);
+            jps.find('.aurel_after_image').width(mouse_pos);
+            jps.find('.aurel_after_image').height(height);          
+            jps.find('.aurel_before_after_divider').css('left', mouse_pos + 'px');      
+            jps.find('.aurel_before_after_divider').height(height);
+          }
+      }
+
+      console.log('mousemove event' + this.beforeAfter);      
+    });
+
+    this.sizeLayout();    
   }
 }
 
