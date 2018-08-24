@@ -153,6 +153,7 @@ export class SlideshowComponent implements OnInit, AfterViewInit {
 
       if (this.beforeAfter !== null && 
          (this.beforeAfter.className == "pswp__img aurel_before_image" || 
+          this.beforeAfter.className == "pswp__img" ||
           this.beforeAfter.className == "aurel_after_image aurel_js_bg_image")) {
           var height = this.beforeAfter.clientHeight;
           var this_offset = jQuery(this.beforeAfter).offset().left,
