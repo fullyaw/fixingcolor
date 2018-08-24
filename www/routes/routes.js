@@ -227,7 +227,7 @@ router.delete('/gallery/:id', passport.authenticate('jwt', { session: false}), f
 
 /* GET ALL GALLERYITEMS BY ON_HOMEPAGE FLAG */
 router.get('/home', function(req, res, next) {  
-  GalleryItem.find({ on_homepage:true }, '_id title description', function(err, items) {
+  GalleryItem.find({ on_homepage:true }, '_id title description width height', function(err, items) {
     if (err) return next(err);
     res.json(items);
   });
@@ -236,7 +236,7 @@ router.get('/home', function(req, res, next) {
 
 /* GET ALL GALLERYITEMS BY ON_SLIDESHOW FLAG */
 router.get('/home/hero',  function(req, res, next) {  
-  GalleryItem.find({ on_slider:true }, '_id title description', function(err, items) {
+  GalleryItem.find({ on_slider:true }, '_id title description width height', function(err, items) {
     if (err) return next(err);
     res.json(items);
   });
