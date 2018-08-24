@@ -1,1 +1,3 @@
-.test {}
+.pswp--zoom-allowed .pswp__img {
+    cursor: default !important
+}

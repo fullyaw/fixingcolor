@@ -30,7 +30,12 @@ export class PhotoSwipeComponent
 
         const options = {
             index: idx,
-            allowUserZoom: false
+            allowUserZoom: false,
+            maxSpreadZoom: 1,
+            getDoubleTapZoom: function (isMouseClick, item) {
+                return item.initialZoomLevel;
+            },
+            zoomEl: false            
         };
 
         this.gallery = new PhotoSwipe(this.photoSwipe.nativeElement, PhotoSwipeUI_Default, images, options);
